@@ -31,12 +31,32 @@ template<typename T> class Vec3 {
         Vec3(const T &xx) : x(xx),  y(xx), z(xx) {} // single-value constructor same value for all coords
         Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {} // three-value ... more flexible 
         T x, y, z;
+
+        T length() {
+            return sqrt((x * x) + (y * y) + (z * z));
+        }
+
+        T dot(const Vec3<T> &v) const {
+            return x * v.x + y * v.y + z * v.z;
+
+        }
+
+        Vec3<T> &normalize() {
+            T len = length(); 
+            if (len > 0) {
+                T invLen = 1 / len;
+                x *= invLen, y *= invLen, z *= invLen;
+            }
+            return *this;
+        }
+
+
 };
 
 /* 
  * I use this approve for transformation because the importance of respecting the difference between 
  * vectors, normals and points are so crucial, the template class helps to avoid issues 
- * /
+ */
 
 typedef Vec3<f32> Vec3f;
 

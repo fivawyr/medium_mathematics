@@ -5,16 +5,35 @@
 #### Quick rewind on transformation and rotation 
 1. Transformation is a fundamental operation that involvves moving points to different location in space (without changing its magnitude). Since we cant change the direction or magnitude of the vector, the vector will be the same, just the O (starting position) will be changed 
 2. Rotation means we change the direction of a vector but keeping its magnitude and O the same
+
 $$
 - Point transformation: P \rarr Translate \rarr P_T
 $$
+
 $$
 - Vector transformation: V \rarr Rotate \rarr V_T
 $$
+
 3. When the magnitude of a vector is exactly 1, we call it a **normalized vector**. Normalization is a common requirement in CG for simplifying calculations and ensure consistencsy across differnt operations. Yet, there are scenarios where maintaining the original legnth of a vector is beneficial, such as when the vector represents a specific distance between two points, prividing both direction and the measure of separation between them 
 ### Normals
 - A surface normal at a point is essentially a vector that is perpendicular (senkrecht) to the **tangent plane** at that point. This means it points directly away from the surface, indicating its orientation in three-dimensional space
 - Normals are indispensable for shading for termine the brightness and color of surfaces in a scene based on the light sources present. By having information about normals, algorithms can accurately simulate the feffects of light on different parts of an object, contributing to trhe realism and depth of the rendered scene.
 - (!) even though normals and vectors have the same structure, the transformation process for normals are different than for vectors. 
 ### Coordinate systems
-- 
+- we use the right-/left hand coordinate system, where the thumb represents the x axis, your index finger the y/z axis and the middlefinger your z/y axis
+> in Physics/Mechanics we are using the z axis to go up and the y axis to go deep. This is the oppusite as in Mathematics/Computer Science! 
+### Operations 
+- Vector Length: 
+
+$$
+\|V\| = \sqrt{(V.x * V.x) + (V.y * V.y) + (V.z * V.z)}
+$$
+
+- normalize a vector &rarr; calculate the vectors length and then divide each coordinates of the vector by its legntt: $\hat{V} = \frac{V}{\|V\|}$
+- to avoid a division by 0, only normalize a vector if the **vector length is greater than zero** (!)
+- Dot product (scalar product) &rarr; the dot product of two vectors can be seen as the projection of A over B. If the two vectors A and B have unit length, then the result of the dot product is the cosine of the angle subtended by the two vectos ($\|A\|cos(\theta)$)
+
+$$
+A \cdot B = (A.x * B.x) + (A.y * B.y) + (A.z * B.z)
+$$
+
