@@ -41,6 +41,14 @@ template<typename T> class Vec3 {
 
         }
 
+        Vec3<T> cross(const Vec3<T> &v) const {
+            return Vec3<T>(
+                    y * v.z - z * v.y,
+                    z * v.x - x * v.z, 
+                    x * v.y - y * v.x
+                    );
+        };
+
         Vec3<T> &normalize() {
             T len = length(); 
             if (len > 0) {

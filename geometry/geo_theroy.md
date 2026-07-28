@@ -37,3 +37,18 @@ $$
 A \cdot B = (A.x * B.x) + (A.y * B.y) + (A.z * B.z)
 $$
 
+- If B is a unit vector, the operation $A \cdot B$ yields to $\|A\|cos(\theta)$, signifying the magnitude of A's projection in B's direciton with a negative sign if the direction is reversed. This is termed the scalar projection of A onto B
+- For cases where neither A or B is a unit vector, the expression can adjusted to $A \cdot \frac{B}{\|B\|}$, recognizing $B/\|B\|$ as B represented as a unit vector
+- When boht vectors are normalized, the arc cosine$(cos^-1$) of their dot product reveals the angle $\theta$ between them: $\theta$ = $cos^-1 (\frac{A\cdotB}{\|A\|\|B\|})$ or $\theta cos^-1(\hat{A}\codt\hat{B}$, where $cos^-1$ denotes the inverse cosine function, commonly presented as acos() in programming languages 
+#### Cross product 
+- unlike the dot product, the cross product results in a vector. The uniqueness of this operation lies in the resultant vector being perpendicular to the plane defined by the two original vectors $C = A \cross B$. 
+
+$$
+C_X = A_Y \cross B_Z - A_Z \cross B_Y 
+C_Y = A_Z \cross B_X - A_X \cross B_Z
+C_Z = A_X \cross B_Y - A_Y \cross B_X
+$$
+
+- the corss product $A \cross B$ results in the vector C, that is **orthogonal to both A and B**. These two vectors define a plane and C s tands perpendicular to this plane. The vectors A and B need not be perpendicular themselves, but when they are, and assuming they are of unit legnth, they form a Cartesian coordinate system with C. This concept is instrumental in construction coordinate systems.  
+- the cross product is described as anticommunative, meaning that exchanging the positions of the two vectors inverses the result (turns into -C). 
+- In math, the output of a cross product is termed as **pseudo vector**. The sequence in which vectors participate in the cross product is critical, especially when computing surface normals from the tangent and bitengent at a point.
