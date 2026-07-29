@@ -39,7 +39,7 @@ $$
 
 - If B is a unit vector, the operation $A \cdot B$ yields to $\|A\|cos(\theta)$, signifying the magnitude of A's projection in B's direciton with a negative sign if the direction is reversed. This is termed the scalar projection of A onto B
 - For cases where neither A or B is a unit vector, the expression can adjusted to $A \cdot \frac{B}{\|B\|}$, recognizing $B/\|B\|$ as B represented as a unit vector
-- When boht vectors are normalized, the arc cosine$(cos^-1$) of their dot product reveals the angle $\theta$ between them: $\theta$ = $cos^-1 (\frac{A\cdotB}{\|A\|\|B\|})$ or $\theta cos^-1(\hat{A}\codt\hat{B}$, where $cos^-1$ denotes the inverse cosine function, commonly presented as acos() in programming languages 
+-When When boht vectors are normalized, the arc cosine$(cos^-1$) of their dot product reveals the angle $\theta$ between them: $\theta$ = $cos^-1 (\frac{A\cdotB}{\|A\|\|B\|})$ or $\theta cos^-1(\hat{A}\codt\hat{B}$, where $cos^-1$ denotes the inverse cosine function, commonly presented as acos() in programming languages 
 #### Cross product 
 - unlike the dot product, the cross product results in a vector. The uniqueness of this operation lies in the resultant vector being perpendicular to the plane defined by the two original vectors $C = A \cross B$. 
 
@@ -51,4 +51,9 @@ $$
 
 - the corss product $A \cross B$ results in the vector C, that is **orthogonal to both A and B**. These two vectors define a plane and C s tands perpendicular to this plane. The vectors A and B need not be perpendicular themselves, but when they are, and assuming they are of unit legnth, they form a Cartesian coordinate system with C. This concept is instrumental in construction coordinate systems.  
 - the cross product is described as anticommunative, meaning that exchanging the positions of the two vectors inverses the result (turns into -C). 
-- In math, the output of a cross product is termed as **pseudo vector**. The sequence in which vectors participate in the cross product is critical, especially when computing surface normals from the tangent and bitengent at a point.
+- In math, the output of a cross product is termed as **pseudo vector**. The sequence in which vectors participate in the cross product is critical, especially when computing surface normals from the tangent and bitengent at a point. The sequence determines wether the resulting normal points inwards or outwards relative to the surface
+### Matrcies
+- a matrix combines all the vector operation that we just learned (transformation, rotation, scalability) tinto a unified entity (einheitliche Größe). 
+- In computer science context, matrices are two-dimensional arrays of numbers. This array is described by the notation $m x n$ where m and n denote the arrays dimension. Here, m and n correspond to the number of rows and columns (rc) 
+#### Matrix multiplication
+- 
