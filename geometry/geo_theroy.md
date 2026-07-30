@@ -56,4 +56,4 @@ $$
 - a matrix combines all the vector operation that we just learned (transformation, rotation, scalability) tinto a unified entity (einheitliche Größe). 
 - In computer science context, matrices are two-dimensional arrays of numbers. This array is described by the notation $m x n$ where m and n denote the arrays dimension. Here, m and n correspond to the number of rows and columns (rc) 
 #### Matrix multiplication
-- 
+-  
