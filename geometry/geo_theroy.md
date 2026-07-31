@@ -56,4 +56,26 @@ $$
 - a matrix combines all the vector operation that we just learned (transformation, rotation, scalability) tinto a unified entity (einheitliche Größe). 
 - In computer science context, matrices are two-dimensional arrays of numbers. This array is described by the notation $m x n$ where m and n denote the arrays dimension. Here, m and n correspond to the number of rows and columns (rc) 
 #### Matrix multiplication
--  
+- $[M \cross P] * [P \cross N] = [M \cross N]$
+$$
+M1 = \begin{bmatrix} c_00 & c_01 & c_02 & c_03 \cr c_10 & c_11 & c_12 & c_13 \cr c_20 & c_21 & c_22 & c_23 \cr c_30 & c_31 & c_32 & c_32\end{bmatrix} M2 = \begin{bmatrix} c_00 & c_01 & c_02 & c_03 \cr c_10 & c_11 & c_12 & c_13 \cr c_20 & c_21 & c_22 & c_23 \cr c_30 & c_31 & c_32 & c_33\end{bmatrix}
+$$
+$$
+M3_12 = \begin{bmatrix} M1_10 * M2_02 + \cr M1_11 * M2_12 + \cr M1_12 * M2_22 + \cr M1_13 * M2_32 \end{bmatrix}
+$$
+Identity matrix: 
+$$
+\begin{bmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 \end{bmatrix}
+$$
+#### Rotation of a matrix
+- lets say on the x axis, we have the Point $Point = (1, 0, 0)$, by rotating it of $\theta = 90°$ and getting $P_T = (0, 1, 0)$ 
+&rarr; This rotation rotates P to 90° counterclockwise (thats why we getting from the X to the Y axis and not the -Y axis)
+- The calculation is: 
+ 
+$$
+P_T.x = P.x * R_00 + P.y * R_10 + P.z * R_20 \cr 
+P_T.y = P.x * R_01 + P.y * R_11 + P.z * R_21 \cr 
+P_T.z = P.x * R_02 + P.y * R_12 + P.z * R_22 \cr 
+$$
+
+- 
