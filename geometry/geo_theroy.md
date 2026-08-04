@@ -69,7 +69,7 @@ $$
 $$
 #### Rotation of a matrix
 - lets say on the x axis, we have the Point $Point = (1, 0, 0)$, by rotating it of $\theta = 90°$ and getting $P_T = (0, 1, 0)$ 
-&rarr; This rotation rotates P to 90° counterclockwise (thats why we getting from the X to the Y axis and not the -Y axis)
+&rarr; This rotation R_00 otates P to 90° counterclockwise (thats why we getting from the X to the Y axis and not the -Y axis)
 - The calculation is: 
  
 $$
@@ -78,4 +78,19 @@ P_T.y = P.x * R_01 + P.y * R_11 + P.z * R_21 \cr
 P_T.z = P.x * R_02 + P.y * R_12 + P.z * R_22 \cr 
 $$
 
-- 
+- Cosine and sine can be used to determine the coordinates of a point on both axises
+&rarr; for a point on the unit circle, its x and y coordinates with the cosine and sine of the angle $\theta$, respectively: 
+
+$$
+x = cos(\theta) = 0
+y = sin(\theta) = 1 
+given\theta = \frac{\pi}{2} -> same as 90°
+$$
+
+- The matrices for rotaion around the x and y axes can be derived similary with $R_x$ affecting rotation in the yz plane and $R_y$ in the xz plane. Those are the matrices **for right handed and row-major matrices** (completly different formula when using a different system). We are transforming a point via $\dot{v} = vR$ and not $\dot{v} = Rv$. There is no right and wrong here, but its the most used one:
+
+$$
+R_x(\theta) = \begin{bmatrix} 1 & 0 & 0 \cr 0 & cos(\theta) & sin(\theta) \cr 0 & -sin(\theta) & cos(\theta) \end{bmatrix}
+R_y(\theta) = \begin{bmatrix} cos(\theta) & 0 & -sin(\theta) \cr 0 & 1 & 0 \cr 0 & sin(\theta) & cos(\theta) \end{bmatrix}
+R_z(\theta) = \begin{bmatrix} cos(\theta) & sin(\theta)& 0\cr -sin(\theta) & cos(\theta) & 0 \cr 0 & 0 & 1 \end{bmatrix}
+$$
