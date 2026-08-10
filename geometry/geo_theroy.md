@@ -1,3 +1,4 @@
+> this entire markdown is based on ScratchAPixel (!)
 ### Linear Algebra 
 > I mostly skip vector and point theory, since everybody got taught this in highschool (I hope so). One sidenote, Mathematics and physiscsits, often adopt a more gneralized view on vectors, where there can encompass as an arbitrary or even infinite number of elements, which is far above the CS scope. We make it simpler 
 - A Vector represends a direction and a **magnitude** within a 3 dimensional space. 
@@ -14,7 +15,7 @@ $$
 - Vector transformation: V \rarr Rotate \rarr V_T
 $$
 
-3. When the magnitude of a vector is exactly 1, we call it a **normalized vector**. Normalization is a common requirement in CG for simplifying calculations and ensure consistencsy across differnt operations. Yet, there are scenarios where maintaining the original legnth of a vector is beneficial, such as when the vector represents a specific distance between two points, prividing both direction and the measure of separation between them 
+3. When the magnitude of a vector is exactly 1, we call it a **normalized vector**. Normalization is a common requirement in CG for simplifying calculations and ensure consistencsy  \times differnt operations. Yet, there are scenarios where maintaining the original legnth of a vector is beneficial, such as when the vector represents a specific distance between two points, prividing both direction and the measure of separation between them 
 ### Normals
 - A surface normal at a point is essentially a vector that is perpendicular (senkrecht) to the **tangent plane** at that point. This means it points directly away from the surface, indicating its orientation in three-dimensional space
 - Normals are indispensable for shading for termine the brightness and color of surfaces in a scene based on the light sources present. By having information about normals, algorithms can accurately simulate the feffects of light on different parts of an object, contributing to trhe realism and depth of the rendered scene.
@@ -39,24 +40,24 @@ $$
 
 - If B is a unit vector, the operation $A \cdot B$ yields to $\|A\|cos(\theta)$, signifying the magnitude of A's projection in B's direciton with a negative sign if the direction is reversed. This is termed the scalar projection of A onto B
 - For cases where neither A or B is a unit vector, the expression can adjusted to $A \cdot \frac{B}{\|B\|}$, recognizing $B/\|B\|$ as B represented as a unit vector
--When When boht vectors are normalized, the arc cosine$(cos^-1$) of their dot product reveals the angle $\theta$ between them: $\theta$ = $cos^-1 (\frac{A\cdotB}{\|A\|\|B\|})$ or $\theta cos^-1(\hat{A}\codt\hat{B}$, where $cos^-1$ denotes the inverse cosine function, commonly presented as acos() in programming languages 
+-When When boht vectors are normalized, the arc cosine$(cos^-1$) of their dot product reveals the angle $\theta$ between them: $\theta$ = $cos^-1 (\frac{A\cdot}{\|A\|\|B\|})$ or $\theta cos^-1(\hat{A}\cdot\hat{B}$, where $cos^-1$ denotes the inverse cosine function, commonly presented as acos() in programming languages 
 #### Cross product 
-- unlike the dot product, the cross product results in a vector. The uniqueness of this operation lies in the resultant vector being perpendicular to the plane defined by the two original vectors $C = A \cross B$. 
+- unlike the dot product, the \times product results in a vector. The uniqueness of this operation lies in the resultant vector being perpendicular to the plane defined by the two original vectors $C = A \times B$. 
 
 $$
-C_X = A_Y \cross B_Z - A_Z \cross B_Y 
-C_Y = A_Z \cross B_X - A_X \cross B_Z
-C_Z = A_X \cross B_Y - A_Y \cross B_X
+C_X = A_Y  \times B_Z - A_Z  \times B_Y 
+C_Y = A_Z  \times B_X - A_X  \times B_Z
+C_Z = A_X  \times B_Y - A_Y  \times B_X
 $$
 
-- the corss product $A \cross B$ results in the vector C, that is **orthogonal to both A and B**. These two vectors define a plane and C s tands perpendicular to this plane. The vectors A and B need not be perpendicular themselves, but when they are, and assuming they are of unit legnth, they form a Cartesian coordinate system with C. This concept is instrumental in construction coordinate systems.  
+- the corss product $A \times B$ results in the vector C, that is **orthogonal to both A and B**. These two vectors define a plane and C s tands perpendicular to this plane. The vectors A and B need not be perpendicular themselves, but when they are, and assuming they are of unit legnth, they form a Cartesian coordinate system with C. This concept is instrumental in construction coordinate systems.  
 - the cross product is described as anticommunative, meaning that exchanging the positions of the two vectors inverses the result (turns into -C). 
 - In math, the output of a cross product is termed as **pseudo vector**. The sequence in which vectors participate in the cross product is critical, especially when computing surface normals from the tangent and bitengent at a point. The sequence determines wether the resulting normal points inwards or outwards relative to the surface
 ### Matrcies
 - a matrix combines all the vector operation that we just learned (transformation, rotation, scalability) tinto a unified entity (einheitliche Größe). 
 - In computer science context, matrices are two-dimensional arrays of numbers. This array is described by the notation $m x n$ where m and n denote the arrays dimension. Here, m and n correspond to the number of rows and columns (rc) 
 #### Matrix multiplication
-- $[M \cross P] * [P \cross N] = [M \cross N]$
+- $[M  \times P] * [P  \times N] = [M  \times N]$
 $$
 M1 = \begin{bmatrix} c_00 & c_01 & c_02 & c_03 \cr c_10 & c_11 & c_12 & c_13 \cr c_20 & c_21 & c_22 & c_23 \cr c_30 & c_31 & c_32 & c_32\end{bmatrix} M2 = \begin{bmatrix} c_00 & c_01 & c_02 & c_03 \cr c_10 & c_11 & c_12 & c_13 \cr c_20 & c_21 & c_22 & c_23 \cr c_30 & c_31 & c_32 & c_33\end{bmatrix}
 $$
@@ -73,9 +74,12 @@ $$
 - The calculation is: 
  
 $$
-P_T.x = P.x * R_00 + P.y * R_10 + P.z * R_20 \cr 
-P_T.y = P.x * R_01 + P.y * R_11 + P.z * R_21 \cr 
-P_T.z = P.x * R_02 + P.y * R_12 + P.z * R_22 \cr 
+P_T.x = P.x * R_00 + P.y * R_10 + P.z * R_20 
+$$
+$$
+P_T.y = P.x * R_01 + P.y * R_11 + P.z * R_21 $$
+$$ 
+P_T.z = P.x * R_02 + P.y * R_12 + P.z * R_22  
 $$
 
 - Cosine and sine can be used to determine the coordinates of a point on both axises
@@ -84,6 +88,8 @@ $$
 $$
 x = cos(\theta) = 0
 y = sin(\theta) = 1 
+$$
+$$
 given\theta = \frac{\pi}{2} -> same as 90°
 $$
 
