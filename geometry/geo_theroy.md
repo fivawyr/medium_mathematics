@@ -94,3 +94,23 @@ R_x(\theta) = \begin{bmatrix} 1 & 0 & 0 \cr 0 & cos(\theta) & sin(\theta) \cr 0 
 R_y(\theta) = \begin{bmatrix} cos(\theta) & 0 & -sin(\theta) \cr 0 & 1 & 0 \cr 0 & sin(\theta) & cos(\theta) \end{bmatrix}
 R_z(\theta) = \begin{bmatrix} cos(\theta) & sin(\theta)& 0\cr -sin(\theta) & cos(\theta) & 0 \cr 0 & 0 & 1 \end{bmatrix}
 $$
+
+#### Orthognal Matrices 
+- The key attribute of orthogonal matrices is, that the transpose of an orthogonal matrix equals its inverse
+$$
+Q^T = Q^-1 <=> QQ^T ? I
+$$
+- I is the Identity matrix!
+#### Vector transformation
+- Vectors dont require translation (because their position is meaningless), we only focus on their magnitude and direction
+```cpp
+void multDirMatrix(const Vec3<T> &src, Vec3<T> &dst) const {
+    dst.x = src.x * m[0][0] + src.y * m[1][0] + src.z * m[2][0];
+    dst.y = src.x * m[0][1] + src.y * m[1][1] + src.z * m[2][1];
+    dst.z = src.x * m[0][2] + src.y * m[1][2] + src.z * m[2][2];
+}
+``` 
+#### Matrix transpose operation
+- The transpose of a matrix, denoted as $M^T$, is derived by flipping the matrix M over its main diagonal, effectifly transoforming the rows of M into columns of $M^T$
+### Trigonometric Functions
+- Sine and cosine are typically defined with respect to the unit circle, a circ
