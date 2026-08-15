@@ -22,7 +22,7 @@ $$
 - (!) even though normals and vectors have the same structure, the transformation process for normals are different than for vectors. 
 ### Coordinate systems
 - we use the right-/left hand coordinate system, where the thumb represents the x axis, your index finger the y/z axis and the middlefinger your z/y axis
-> in Physics/Mechanics we are using the z axis to go up and the y axis to go deep. This is the oppusite as in Mathematics/Computer Science! 
+> in Physics/Mechanics we are using the z axis to go up and the y axis to go deep. This is the opposite as in Mathematics/Computer Science! 
 ### Operations 
 - Vector Length: 
 
@@ -119,4 +119,50 @@ void multDirMatrix(const Vec3<T> &src, Vec3<T> &dst) const {
 #### Matrix transpose operation
 - The transpose of a matrix, denoted as $M^T$, is derived by flipping the matrix M over its main diagonal, effectifly transoforming the rows of M into columns of $M^T$
 ### Trigonometric Functions
-- Sine and cosine are typically defined with respect to the unit circle, a circ
+- Sine and cosine are typically defined with respect to the unit circle, a circle with the radius of 1. The angle $\theta$ ist measured **in radians and not degrees**, which is important to keep in mind, when you implement it in C++:
+$$
+\theta_radians = \frac{\pi}{180} \theta_degrees -> full rotation equals 2\pi
+$$
+- The arctangent function, or the inverse of tangent, is particularly useful in gp. While the atan function calculates the arctangent, it doesnt account for the quadrant of the angle. THe atan2 function, however, considers the signs of both x and y coords and determining the angle $\theta$: 
+$$
+sin(\theta) = \frac{opposite side}{hypothenuse}, cos(\theta) = \frac{adjacent side}{hypothenuse}, tan(\theta) = \frac{opposite}{adjacent side}
+inverse functions with given point P: 
+\theta = acos(P_X), \theta = asin(P_Y), \theta = atan2(P_Y, P_X)
+$$
+- we can use two angles to describe a vector in a coordinate system, the vertical angle (\theta) and the horizontal angle (\phi) (&rarr; gauges the angle between the vectors projection onto the horizontal plane and a predefined right vector of the Cartesian system (!))
+> Spherical coordinates not only simplify the representation but also play a crucial role in shading techniques, where understanding the direction relative to light sources and surfaces is the key. The transition from Cartesian to sperical coordinates involvves recognizing the vector in terms of its orientation within a 3D space, defined against the right (V_r), up (V_u) and forward (V_f) axes, rather than the traditional x, y and z. This choice avoids confuction with the different axis names on the Cartesian coordinate system. 
+#### Translating Cartesian coordinates into spherical coordinates 
+$V_z = cos(\theta) rarr \theta = acos(V_Z)$ is implemented as `f32 theta = acos(Vz);`
+- $\phi$'s range extend from 0 to $2\pi$, employing the tangent and specifically the atan2 function in C++ offers an advantage by factoring the signs of Vy and Vx. This method yields an angle ranging between 0 to $\pi$ for vectors on the unit cirvles right and between 0 to $-\pi$ 
+$$
+tan(\phi) = \frac{V_Y}{V_X} rarr \phi = atan2(V_Y, V_X)
+$$
+- which is implement as `f32 phi = atan2(V_y, V_x);`
+#### Converting Spherical Coordinates to Cartesian Coordinates 
+$$
+x = cos(\phi)sin(\theta), y = sin(\phi)sin(\theta), z = cos(\theta)
+$$
+- implementation: 
+```cpp
+template<typename T> 
+Vec3<T> sphericalToCartesian(const T &theta, const T &phi) {
+    return Vec3<T>(cos(phi) * sin(theta), sin(phi) * sin(theta));
+}
+``` 
+#### Projection Vectors onto the XY Plane 
+```
+template<typename T>
+inline T cosPhi(const Vec3<T> &w) {
+    T sintheta = sinTheta(w);
+    if (sintheta == 0) return 1;
+    return clamp<T>(w[0] / sintheta, -1, 1);
+}
+
+template<typename T>
+inline T sinPhi(const Vec3<T> &w) {
+    T sintheta = sinTheta(w);
+    if (sintheta == 0) return 0;
+    return clamp<T>(w[1] / sintheta, -1, 1);
+}```
+
+### Creating an orientation matrix or local coordinates system

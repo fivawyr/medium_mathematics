@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <cstdint>
 
@@ -58,6 +59,20 @@ template<typename T> class Vec3 {
             return *this;
         }
 
+        Vec3<T> sphericalToCartesian(const T &theta, const T &phi) {
+            return Vec3<T>(cos(phi) * sin(theta), sin(phi) * sin(theta), cos(theta));
+        };
+
+        inline T cosPhi(const Vec3<T> &w) {
+            T sintheta = sinTheta(w);
+            if (sintheta == 0) return 1;
+            return clamp<T>(w[0] / sintheta, -1, 1); 
+        }
+        inline T sinPhi(const Vec3<T> &w) {
+            T sintheta = sinTheta(w);
+            if (sintheta == 0) return 0;
+            return clamp<T>(w[1] / sintheta, -1, 1);
+        }
 
 };
 
