@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <cstdint>
 
@@ -33,7 +34,7 @@ template<typename T> class Vec3 {
         Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {} // three-value ... more flexible 
         T x, y, z;
 
-        T length() {
+        T length() const {
             return sqrt((x * x) + (y * y) + (z * z));
         }
 
