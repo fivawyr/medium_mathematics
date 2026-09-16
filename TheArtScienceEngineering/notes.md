@@ -4,4 +4,8 @@
 - "I strongly advise, when possible, to start with the simple simulation and evolve it to a more complete, more accurate, simulation later so the insights ca arise early. Of course, at the end as you freeze the final dsing you must put in all the small effects which could matter in the final performance. But (1) start as simply as you can, provided you include all the main effects, (2) get the insights, and then (3) evolve the simulation to the fully detailed one."
 - "an active mind can contribute to a simulation even when you are dealing with experts in a field where you are a strict amateur. You, with your hands on all the small details, have a chance to see what they have not seen, and to make significant contributions, as well save mashine time! Again, all too often I have seen things missed during the simulation by those running it, and hence were not likely to get to the users to the result"
 - "Jargon is both a necessity and a curse. You should realize you need to be active intellectually to gain the advantages of the jargon and to avoid the pitfalls, even in your own area of expertiese"
-
+- "Computer-based simulation is now in widespread use to analyse system models and evaluate theoreticla solutions to observed problems. Since important decisions must rely on simulations, it is essential that is validity be tested, and that its advocates be able to describe the level of authentic representation which they achieved"
+> Why sould anyone believe the simulation is relevant? 
+- Do not begin with any simulation until you have given this question a gread deal of thought and found appropriate answers. The asked question (one statement avove) covers both the accuracy of the **modeling** and the accuracy of the **computations** 
+- "Old people are not very quick to grasp new ideads, it it not that they are dumb, stupid or anything else like that, it is sinply that older minds are usually slow to adjust t radically new ideas"
+- 
