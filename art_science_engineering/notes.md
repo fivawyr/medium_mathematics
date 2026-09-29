@@ -8,4 +8,4 @@
 > Why sould anyone believe the simulation is relevant? 
 - Do not begin with any simulation until you have given this question a gread deal of thought and found appropriate answers. The asked question (one statement avove) covers both the accuracy of the **modeling** and the accuracy of the **computations** 
 - "Old people are not very quick to grasp new ideads, it it not that they are dumb, stupid or anything else like that, it is sinply that older minds are usually slow to adjust t radically new ideas"
-- 
+- I emphasize the necessity of having the underlying laws of whatever field you are simulating well under controll
